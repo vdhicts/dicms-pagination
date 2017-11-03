@@ -1,0 +1,20 @@
+{
+    "name": "vdhicts/pagination",
+    "description": "Easily use pagination for your repositories and in your templates",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dick van der Heiden",
+            "email": "info@vdhicts.nl"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^5.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vdhicts\\Dicms\\Pagination\\": "src"
+        }
+    }
+}
