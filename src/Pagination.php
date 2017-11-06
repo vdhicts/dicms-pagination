@@ -243,8 +243,16 @@ class Pagination implements Contracts\Paginator
      */
     private function calculateFirstItemOnPage()
     {
+        // When an offset is used, increase the first item with 1
+        $offsetItem = $this->getOffset() !== 0 ? 1 : 0;
+
+        // When there are a total amount of items and the offset is zero, increase 1
+        if ($this->getTotalItems() !== 0 && $offsetItem === 0) {
+            $offsetItem = 1;
+        }
+
         // Determine the first item on the page
-        $firstItem = $this->getOffset() + ($this->getOffset() !== 0 ? 1 : 0);
+        $firstItem = $this->getOffset() + $offsetItem;
 
         $this->setFirstItemOnPage((int)$firstItem);
     }

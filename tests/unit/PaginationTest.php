@@ -43,19 +43,19 @@ class PaginationTest extends TestCase
     public function testPaginationFirstPageWithTotalItems()
     {
         $limit = 25;
-        $page = 2;
+        $page = 1;
         $totalItems = 54;
 
         $pagination = new Pagination($limit, $page, $totalItems);
         $this->assertSame($limit, $pagination->getLimit());
         $this->assertTrue($pagination->hasLimit());
-        $this->assertSame(25, $pagination->getOffset());
+        $this->assertSame(0, $pagination->getOffset());
         $this->assertSame($totalItems, $pagination->getTotalItems());
         $this->assertSame($page, $pagination->getPage());
         $this->assertSame(3, $pagination->getTotalPages());
         $this->assertSame(0, count($pagination->getParameters()));
-        $this->assertSame(26, $pagination->getFirstItemOnPage());
-        $this->assertSame(50, $pagination->getLastItemOnPage());
+        $this->assertSame(1, $pagination->getFirstItemOnPage());
+        $this->assertSame(25, $pagination->getLastItemOnPage());
     }
 
     public function testPaginationSecondPageWithoutTotalItems()
